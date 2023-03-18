@@ -1,5 +1,8 @@
 " package management
 call plug#begin()
+" general
+Plug 'tpope/vim-vinegar'
+
 " colors - customization in lua
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 

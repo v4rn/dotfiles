@@ -31,5 +31,5 @@ vim.cmd[[set expandtab]]
 vim.cmd[[set shiftwidth=4]]
 vim.cmd[[set autoindent]]
 vim.cmd[[set smartindent]]
-
 vim.cmd[[set textwidth=80]]
+vim.cmd[[set signcolumn=yes]]
