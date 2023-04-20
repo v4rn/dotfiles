@@ -31,3 +31,10 @@ vim.cmd[[set relativenumber]]
 vim.cmd[[set number]]
 
 vim.cmd[[set cmdheight=0]]
+
+vim.cmd[[set clipboard+=unnamedplus]]
+
+-- lsp stuff
+local lspconfig = require('lspconfig')
+lspconfig.pyright.setup {}
+lspconfig.gopls.setup {}
