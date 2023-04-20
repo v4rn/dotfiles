@@ -2,6 +2,7 @@
 call plug#begin()
 " general
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-fugitive'
 
 " colors - customization in lua
 Plug 'NLKNguyen/papercolor-theme'
