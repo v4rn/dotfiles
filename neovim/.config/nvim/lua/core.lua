@@ -10,17 +10,8 @@ vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 
 -- aesthetic
 vim.o.laststatus=3
-
-require("tokyonight").setup({
-  style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-  transparent = true, -- Enable this to disable setting the background color
-  terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
-  styles = {
-	sidebars = "transparent",
-	floats = "transparent",
-  }
-})
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[set background=light]]
+vim.cmd[[colorscheme PaperColor]]
 
 -- setup commands
 vim.g.coq_settings = {

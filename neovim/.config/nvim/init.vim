@@ -5,6 +5,7 @@ Plug 'tpope/vim-vinegar'
 
 " colors - customization in lua
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'NLKNguyen/papercolor-theme'
 
 " telescope and dependency
 Plug 'nvim-lua/plenary.nvim'
@@ -20,6 +21,7 @@ call plug#end()
 lua require("core")
 
 " convert these cmds to lua
+hi WinSeparator ctermbg=NONE
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<cr><Esc>
 
 nnoremap <silent> [q :cprevious<cr><cr>
