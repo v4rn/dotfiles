@@ -18,3 +18,20 @@ call plug#end()
 
 " core setup
 lua require("core")
+
+" convert these cmds to lua
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<cr><Esc>
+
+nnoremap <silent> [q :cprevious<cr><cr>
+nnoremap <silent> ]q :cnext<cr><cr>
+
+function! ToggleQuickFix()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+        copen
+    else
+        cclose
+    endif
+endfunction
+
+nnoremap <leader>1 :call ToggleQuickFix()<cr>
+autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
