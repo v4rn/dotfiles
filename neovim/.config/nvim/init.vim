@@ -31,6 +31,9 @@ lua require("core")
 hi WinSeparator ctermbg=NONE
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<cr><Esc>
 
+nnoremap ; :
+vnoremap ; :
+
 nnoremap <silent> [q :cprevious<cr><cr>
 nnoremap <silent> ]q :cnext<cr><cr>
 
