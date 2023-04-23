@@ -7,9 +7,16 @@ Plug 'tpope/vim-fugitive'
 " colors - customization in lua
 Plug 'NLKNguyen/papercolor-theme'
 
+" terminal config
+Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+
 " telescope and dependency
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
+" debugging tools
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'jodosha/vim-godebug'
 
 " auto completion, lsp, tree sitter and tags
 " you still need to add nvim-lspconfig and install the language servers you want
@@ -26,6 +33,7 @@ call plug#end()
 
 " core setup
 lua require("core")
+lua require("toggleterm").setup()
 
 " convert these cmds to lua
 hi WinSeparator ctermbg=NONE
