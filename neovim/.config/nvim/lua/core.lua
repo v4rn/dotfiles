@@ -10,8 +10,8 @@ vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 
 -- aesthetic
 vim.o.laststatus=3
-vim.cmd[[set background=light]]
-vim.cmd[[colorscheme PaperColor]]
+vim.cmd[[set background=dark]]
+vim.cmd[[colorscheme kanagawa-dragon]]
 
 -- setup commands
 vim.g.coq_settings = {
@@ -20,8 +20,8 @@ vim.g.coq_settings = {
 vim.cmd[[set autoindent]]
 vim.cmd[[set tabstop=2]]
 vim.cmd[[set shiftwidth=2]]
-vim.cmd[[set smarttab]]
 vim.cmd[[set softtabstop=2]]
+vim.cmd[[set smarttab]]
 vim.cmd[[set expandtab]]
 vim.cmd[[set smartindent]]
 vim.cmd[[set textwidth=80]]
