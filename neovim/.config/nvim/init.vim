@@ -31,6 +31,8 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'sheerun/vim-polyglot'
 Plug 'rebelot/kanagawa.nvim'
+Plug 'windwp/nvim-autopairs'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 " core setup

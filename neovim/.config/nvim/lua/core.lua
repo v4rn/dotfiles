@@ -38,3 +38,6 @@ vim.cmd[[set clipboard+=unnamedplus]]
 local lspconfig = require('lspconfig')
 lspconfig.pyright.setup {}
 lspconfig.gopls.setup {}
+
+-- autopairs
+require("nvim-autopairs").setup {}
