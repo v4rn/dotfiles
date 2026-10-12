@@ -10,13 +10,10 @@ vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 
 -- aesthetic
 vim.o.laststatus=3
-vim.cmd[[set background=dark]]
-vim.cmd[[colorscheme kanagawa-dragon]]
+vim.cmd[[set background=light]]
+vim.cmd[[colorscheme PaperColor]]
 
 -- setup commands
-vim.g.coq_settings = {
-	auto_start = "shut-up",
-}
 vim.cmd[[set autoindent]]
 vim.cmd[[set tabstop=2]]
 vim.cmd[[set shiftwidth=2]]
@@ -35,9 +32,4 @@ vim.cmd[[set cmdheight=0]]
 vim.cmd[[set clipboard+=unnamedplus]]
 
 -- lsp stuff
-local lspconfig = require('lspconfig')
-lspconfig.pyright.setup {}
-lspconfig.gopls.setup {}
-
--- autopairs
-require("nvim-autopairs").setup {}
+vim.lsp.enable({ 'gopls', 'pyright' })

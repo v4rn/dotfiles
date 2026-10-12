@@ -12,11 +12,10 @@ Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 
 " telescope and dependency
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': 'v0.2.2' }
 
 " debugging tools
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'jodosha/vim-godebug'
 
 " auto completion, lsp, tree sitter and tags
 " you still need to add nvim-lspconfig and install the language servers you want
@@ -24,23 +23,21 @@ Plug 'jodosha/vim-godebug'
 " For example:
 "   python: sudo npm i -g pyright
 "   golang: go install golang.org/x/tools/gopls@latest
-Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
-Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
-Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'sheerun/vim-polyglot'
 Plug 'rebelot/kanagawa.nvim'
-Plug 'windwp/nvim-autopairs'
 Plug 'tpope/vim-commentary'
 call plug#end()
 
 " core setup
 lua require("core")
-lua require("toggleterm").setup()
+lua require("toggleterm_setup")
 
 " convert these cmds to lua
 hi WinSeparator ctermbg=NONE
+hi clear SignColumn
+hi LineNr ctermbg=NONE guibg=NONE
+
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<cr><Esc>
 
 nnoremap ; :
@@ -59,9 +56,3 @@ endfunction
 
 nnoremap <leader>1 :call ToggleQuickFix()<cr>
 autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
-
-lua <<EOF
-  require'lspconfig'.terraformls.setup{}
-EOF
-autocmd BufWritePre *.tfvars lua vim.lsp.buf.format()
-autocmd BufWritePre *.tf lua vim.lsp.buf.format()
