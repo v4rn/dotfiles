@@ -27,6 +27,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'sheerun/vim-polyglot'
 Plug 'rebelot/kanagawa.nvim'
 Plug 'tpope/vim-commentary'
+Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
 
 " core setup

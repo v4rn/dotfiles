@@ -2,16 +2,12 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>v", "<CMD>e $MYVIMRC<CR>")
+vim.o.termguicolors = true
 
 -- telescope remaps
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<C-l>', builtin.grep_string, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-
--- aesthetic
-vim.o.laststatus=3
-vim.cmd[[set background=light]]
-vim.cmd[[colorscheme PaperColor]]
 
 -- setup commands
 vim.cmd[[set autoindent]]
@@ -33,3 +29,20 @@ vim.cmd[[set clipboard+=unnamedplus]]
 
 -- lsp stuff
 vim.lsp.enable({ 'gopls', 'pyright' })
+
+-- tree sitter
+local langs = { 'lua', 'python', 'go', 'rust', 'bash' }
+require('nvim-treesitter').setup {}
+require('nvim-treesitter').install(langs)
+
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = langs,
+    callback = function()
+        vim.treesitter.start()
+    end,
+})
+
+-- aesthetic
+vim.o.laststatus=3
+vim.cmd[[set background=light]]
+vim.cmd[[colorscheme PaperColor]]
