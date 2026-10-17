@@ -57,3 +57,5 @@ endfunction
 
 nnoremap <leader>1 :call ToggleQuickFix()<cr>
 autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
+
+nnoremap <leader>2 :lua vim.diagnostic.setloclist()<cr>

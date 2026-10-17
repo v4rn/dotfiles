@@ -18,10 +18,10 @@ vim.cmd[[set smarttab]]
 vim.cmd[[set expandtab]]
 vim.cmd[[set smartindent]]
 vim.cmd[[set textwidth=80]]
-vim.cmd[[set signcolumn=yes]]
+vim.cmd[[set signcolumn=no]]
 
-vim.cmd[[set relativenumber]]
-vim.cmd[[set number]]
+-- vim.cmd[[set relativenumber]]
+-- vim.cmd[[set number]]
 
 vim.cmd[[set cmdheight=0]]
 
@@ -44,5 +44,15 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- aesthetic
 vim.o.laststatus=3
-vim.cmd[[set background=light]]
+vim.cmd[[set background=dark]]
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "PaperColor",
+  callback = function()
+    for _, g in ipairs({
+      "Normal", "NormalNC", "NormalFloat", "EndOfBuffer", "LineNr", "FoldColumn",
+    }) do
+      vim.api.nvim_set_hl(0, g, { bg = "NONE", ctermbg = "NONE" })
+    end
+  end,
+})
 vim.cmd[[colorscheme PaperColor]]
