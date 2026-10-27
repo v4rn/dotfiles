@@ -19,6 +19,7 @@ vim.cmd[[set expandtab]]
 vim.cmd[[set smartindent]]
 vim.cmd[[set textwidth=80]]
 vim.cmd[[set signcolumn=no]]
+vim.cmd[[set nowrapscan]]
 
 -- vim.cmd[[set relativenumber]]
 -- vim.cmd[[set number]]
@@ -29,6 +30,19 @@ vim.cmd[[set clipboard+=unnamedplus]]
 
 -- lsp stuff
 vim.lsp.enable({ 'gopls', 'pyright' })
+
+-- autocomplete
+vim.o.autocomplete = true
+vim.o.completeopt = "menuone,noselect,popup,fuzzy"
+
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if client and client:supports_method("textDocument/completion") then
+            vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+        end
+    end,
+})
 
 -- tree sitter
 local langs = { 'lua', 'python', 'go', 'rust', 'bash' }
@@ -44,15 +58,5 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- aesthetic
 vim.o.laststatus=3
-vim.cmd[[set background=dark]]
-vim.api.nvim_create_autocmd("ColorScheme", {
-  pattern = "PaperColor",
-  callback = function()
-    for _, g in ipairs({
-      "Normal", "NormalNC", "NormalFloat", "EndOfBuffer", "LineNr", "FoldColumn",
-    }) do
-      vim.api.nvim_set_hl(0, g, { bg = "NONE", ctermbg = "NONE" })
-    end
-  end,
-})
+vim.cmd[[set background=light]]
 vim.cmd[[colorscheme PaperColor]]
